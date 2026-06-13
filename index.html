@@ -85,18 +85,59 @@ nav{background:var(--brown);padding:0 2rem;display:flex;align-items:center;justi
 footer{background:var(--brown);padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;margin-top:1rem}
 .foot-brand{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold-l);letter-spacing:.05em}
 .foot-meta{font-size:11px;color:rgba(255,255,255,.3)}
-@media(max-width:700px){
+@media(max-width:768px){
+  .who-grid{grid-template-columns:1fr!important;gap:1.5rem!important}
+  .kcic-grid{grid-template-columns:1fr!important}
+  .div-grid{grid-template-columns:repeat(2,1fr)!important}
+
   .hero{grid-template-columns:1fr;height:auto}
-  .hero-photo{height:260px}
-  .hero-title{font-size:72px}
+  .hero-photo{height:220px}
+  .hero-copy{padding:2rem 1.25rem}
+  .hero-title{font-size:64px}
+  .hero-desc{max-width:100%}
+  .ticker{gap:.25rem;padding:.5rem 1rem}
+  .tick-num{font-size:26px}
+  .tick-lbl{font-size:8px;letter-spacing:.06em}
+  .tick-item{padding:0 .25rem}
+  .wrap{padding:2rem 1rem}
+  .sec-title{font-size:32px}
   .sched-grid{grid-template-columns:1fr;gap:2rem}
-  .roster-grid{grid-template-columns:repeat(2,1fr)}
-  .partner-section{grid-template-columns:1fr}
-  .partner-reach{align-items:flex-start}
-  .story-grid{grid-template-columns:1fr;height:auto}
-  .story-grid .story-main{grid-column:1}
-  .photo-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .game-row{grid-template-columns:60px 1fr 55px 50px;font-size:12px;padding:.5rem .6rem}
+  .record-big{font-size:48px}
+  .photo-grid{grid-template-columns:1fr;grid-template-rows:200px 160px 160px}
   .photo-grid .tall{grid-row:auto}
+  .roster-grid{grid-template-columns:repeat(2,1fr)}
+  .player-num{font-size:22px;min-width:28px}
+  .stats-table{font-size:11px}
+  .stats-table th,.stats-table td{padding:.35rem .3rem}
+  .story-grid{grid-template-columns:1fr;height:auto}
+  .story-grid img{height:200px}
+  .story-grid .story-main{grid-column:1}
+  .partner-section{grid-template-columns:1fr;padding:1.5rem}
+  .partner-reach{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .reach-pill{font-size:10px}
+  .partner-headline{font-size:28px}
+  nav{padding:0 1rem}
+  .nav-links{gap:.75rem}
+  .nav-links a{font-size:10px;letter-spacing:.06em}
+}
+@media(max-width:480px){
+  .div-grid{grid-template-columns:1fr!important}
+
+  .hero-title{font-size:52px}
+  .ticker{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;gap:0}
+  .tick-item{min-width:80px;border-right:1px solid rgba(255,255,255,.2);padding:.5rem .6rem}
+  .tick-item:last-child{border-right:none}
+  .game-row{grid-template-columns:52px 1fr 48px;gap:4px}
+  .g-loc{display:none}
+  .roster-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-table th:nth-child(n+6),.stats-table td:nth-child(n+6){display:none}
+  .nav-links li:nth-child(n+3){display:none}
+  [style*="grid-template-columns:1.5fr 1fr"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:1fr auto"]{grid-template-columns:1fr!important}
+  [style*="grid-template-columns:2fr 1fr"]{grid-template-columns:1fr!important}
 }
 </style>
 </head>
@@ -139,7 +180,7 @@ footer{background:var(--brown);padding:1.5rem 2rem;display:flex;justify-content:
   <section style="margin-bottom:4rem">
     <p class="sec-label">The team</p>
     <h2 class="sec-title">Who We Are</h2>
-    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:start">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:start" class="who-grid">
       <div>
         <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:1rem">
           We're a mixed bag in the best way. Experience on this roster runs from high school hockey all the way through D1 college, and ages span from 21 to 40-something — which means on any given night you've got a 23-year-old skating next to a guy who's been playing since before he was born.
@@ -265,7 +306,7 @@ footer{background:var(--brown);padding:1.5rem 2rem;display:flex;justify-content:
     <p class="sec-label">About the rink</p>
     <h2 class="sec-title">Kansas City Ice Center</h2>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem" class="kcic-grid">
       <div>
         <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1rem">
           The Kansas City Ice Center has been the heartbeat of hockey in this city for decades. Two rinks running four to five nights a week, year-round — it's where kids learn to skate, where amateur players keep the game alive into their 40s and beyond, and where teams like the Brew In's have been competing since 2020.
@@ -314,7 +355,7 @@ footer{background:var(--brown);padding:1.5rem 2rem;display:flex;justify-content:
     </div>
 
     <!-- Division breakdown -->
-    <div style="background:var(--brown);border-radius:10px;padding:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0">
+    <div style="background:var(--brown);border-radius:10px;padding:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0" class="div-grid">
       <div style="padding:1rem 1.25rem;border-right:1px solid rgba(255,255,255,.08)">
         <div style="font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem">A/B League</div>
         <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6">Top competitive tier. The most skilled adult players in KC — where the Brew In's play.</div>
